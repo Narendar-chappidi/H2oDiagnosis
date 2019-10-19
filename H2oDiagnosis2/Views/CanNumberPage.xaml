@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="H2oDiagnosis2.Views.CanNumberPage"
+             BackgroundImageSource="C:\\Users\\mgaddam1\\source\\repos\\H2oDiagnosis2\\H2oDiagnosis2\\Background2.jpg">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="AliceBlue">
+            <Label Text="CAN Number" FontSize="Medium" TextColor="Black"/>
+            <Entry Text="{Binding x.CanNo}" d:Text="Item name" FontSize="Small" />
+            <Label Text="Lat Long" FontSize="Medium" TextColor="Black"/>
+            <Editor Text="{Binding x.LatLong}" d:Text="Item description" FontSize="Small" Margin="0" />
+            <Button Text="Next" Clicked="OnButtonClicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
