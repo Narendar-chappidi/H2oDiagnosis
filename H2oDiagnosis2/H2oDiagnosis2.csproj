@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -14,8 +14,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="SkiaSharp" Version="1.68.0" />
+    <PackageReference Include="Syncfusion.Xamarin.DocIORenderer" Version="17.3.0.17" />
+    <PackageReference Include="System.Net.Mail.Abstractions" Version="1.1.20" />
+    <PackageReference Include="System.Runtime.InteropServices" Version="4.3.0" />
     <PackageReference Include="Xamarin.Forms" Version="4.2.0.709249" />
     <PackageReference Include="Xamarin.Essentials" Version="1.2.0" />
+    <PackageReference Include="Xamarin.Forms.GoogleMaps" Version="3.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="H2oReporter">
+      <HintPath>..\H2oDiagnosis2.Android\bin\Debug\H2oReporter.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>

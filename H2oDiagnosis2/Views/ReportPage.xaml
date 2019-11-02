@@ -4,13 +4,27 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="H2oDiagnosis2.Views.ReportPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Report page!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Button Text="Next" Clicked="OnNext_Clicked" />
-        </StackLayout>
-    </ContentPage.Content>
+             x:Class="H2oDiagnosis2.Views.ReportPage"
+             BackgroundImageSource="C:\\Users\\mgaddam1\\source\\repos\\H2oDiagnosis2\\H2oDiagnosis2\\Background2.jpg">
+   <ContentPage.Content>
+      <StackLayout>
+         <Label Text="Water Usage Score:" FontSize="Medium" TextColor="Black" Margin="10, 10, 70, 10"/>
+         <Button Text="{Binding h2oDiagsData.m_Name}" BackgroundColor="Green" Margin="70, 0, 70, 10"/>
+         <Grid>
+            <Label x:Name="lbl_Header" Text=" You are almost saving(in litres):" Grid.Row="1" Grid.ColumnSpan="3" HorizontalOptions="Center" TextColor="Black"></Label>
+            <Label x:Name="lbl_Header1" Text=" Min:" Grid.Row="2" Grid.Column="0" HorizontalOptions="Start" TextColor="Black"></Label>
+            <Label x:Name="lbl_Header11" Text=" {Binding h2oDiagsData.m_Name}" Grid.Row="2" Grid.Column="1" HorizontalOptions="Start" TextColor="Black"></Label>
+            <Label x:Name="lbl_Header2" Text=" Max:" Grid.Row="2" Grid.Column="2" HorizontalOptions="Start" TextColor="Black"></Label>
+            <Label x:Name="lbl_Header22" Text=" {Binding h2oDiagsData.m_Name}" Grid.Row="2" Grid.Column="3" HorizontalOptions="Start" TextColor="Black"></Label>
+
+            <Label x:Name="lbl_Header5" Text=" You are almost saving(in rupees):" Grid.Row="3" Grid.ColumnSpan="3" HorizontalOptions="Center" TextColor="Black"></Label>
+            <Label x:Name="lbl_Header51" Text=" Min:" Grid.Row="4" Grid.Column="0" HorizontalOptions="Start" TextColor="Black"></Label>
+            <Label x:Name="lbl_Header61" Text=" {Binding h2oDiagsData.m_Name}" Grid.Row="4" Grid.Column="1" HorizontalOptions="Start" TextColor="Black"></Label>
+            <Label x:Name="lbl_Header71" Text=" Max:" Grid.Row="4" Grid.Column="2" HorizontalOptions="Start" TextColor="Black"></Label>
+            <Label x:Name="lbl_Header81" Text=" {Binding h2oDiagsData.m_Name}" Grid.Row="4" Grid.Column="3" HorizontalOptions="Start" TextColor="Black"></Label>
+
+         </Grid>
+         <Button x:Name="btn_Next" Grid.Row="3" Grid.Column="0" Text="Back to Home Page" Margin="50,30" VerticalOptions="EndAndExpand" BackgroundColor="LightSteelBlue" Clicked="OnNext_Clicked" ></Button>
+      </StackLayout>
+   </ContentPage.Content>
 </ContentPage>

@@ -6,11 +6,27 @@
              mc:Ignorable="d"
              x:Class="H2oDiagnosis2.Views.RecPlantPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Recycle plant page!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Button Text="Next" Clicked="OnNext_Clicked" />
+        <StackLayout BackgroundColor="AliceBlue">
+            <StackLayout Orientation="Horizontal" Spacing="0" IsVisible="{Binding ReportMode}">
+                <Label Text="Recycling Plant" FontSize="Medium" TextColor="Black"/>
+                <StackLayout Orientation="Horizontal" Spacing="0" HorizontalOptions="EndAndExpand">
+                    <BoxView IsVisible="{Binding GraphMode}" HorizontalOptions="EndAndExpand"/>
+                    <Switch IsToggled="{Binding h2oDiagsData.m_RecPlantExists}" HorizontalOptions="EndAndExpand" OnColor="Green"/>
+                </StackLayout>
+            </StackLayout>
+
+            <Picker Title="Select Recycling Plant Type" SelectedIndexChanged="OnPickerSelectedIndexChanged" FontSize="Small">
+                <Picker.Items>
+                    <x:String>Non_PotableUsage</x:String>
+                    <x:String>DomesticUsage</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <!--<Label Text="Recycling Plant Type" FontSize="Medium" />
+            <Entry Text="{Binding h2oDiagsData.m_RecPlantType}" d:Text="Rec plant type" FontSize="Small" Margin="0" />-->
+           <Label Text="Recycling Plant Capacity (in Litres)" FontSize="Medium" TextColor="Black"/>
+            <Entry Text="{Binding h2oDiagsData.m_RecPlantCapacity}" d:Text="Rec plant Capacitty" FontSize="Small" Margin="0" Keyboard="Numeric" Placeholder="Enter Recycling Plant Capacity (in Litres) "/>
+            <Button Text="FINISH !" Clicked="OnNext_Clicked" VerticalOptions="EndAndExpand" BackgroundColor="LightSteelBlue" FontSize="Large"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

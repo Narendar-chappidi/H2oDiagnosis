@@ -6,11 +6,41 @@
              mc:Ignorable="d"
              x:Class="H2oDiagnosis2.Views.RWHSPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to RWHS page!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Button Text="Next" Clicked="OnNext_Clicked" />
+        <StackLayout BackgroundColor="AliceBlue">
+         <StackLayout Orientation="Horizontal" Spacing="0" IsVisible="{Binding ReportMode}">
+            <Label Text="Rain Water Harvesting Structures" FontSize="Medium" TextColor="Black"/>
+                <StackLayout Orientation="Horizontal" Spacing="0" HorizontalOptions="EndAndExpand">
+                    <BoxView IsVisible="{Binding GraphMode}" WidthRequest ="20" HeightRequest="20" VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+                    <Switch IsToggled="{Binding h2oDiagsData.m_RWHSExists}" HorizontalOptions="EndAndExpand" OnColor="Green"/>
+                </StackLayout>
+            </StackLayout>
+
+         <Picker Title="Select Rain Water Harvesting Structure Type" SelectedIndexChanged="OnPickerSelectedIndexChanged" FontSize="Small">
+                <Picker.Items>
+                    <x:String>Storage</x:String>
+                    <x:String>Bores</x:String>
+                    <x:String>Pits</x:String>
+                </Picker.Items>
+            </Picker>
+            
+            <!--<Label Text="RWHS Type" FontSize="Medium" />
+            <Entry Text="{Binding h2oDiagsData.m_RWHSType}" d:Text="RWHS Type" FontSize="Small" Margin="0" />-->
+
+            <StackLayout Orientation="Horizontal" Spacing="0" IsVisible="{Binding ReportMode}" HeightRequest="60">
+            <Label Text="Is Your Rain Water Harvesting Structure Overflowing?" FontSize="Medium" TextColor="Black"/>
+                <StackLayout Orientation="Horizontal" Spacing="0" HorizontalOptions="EndAndExpand">
+                    <BoxView IsVisible="{Binding GraphMode}" HorizontalOptions="EndAndExpand"/>
+                    <Switch IsToggled="{Binding h2oDiagsData.m_RWHSIsOverFlow}" HorizontalOptions="EndAndExpand" OnColor="Green"/>
+                </StackLayout>
+            </StackLayout>
+
+            <!--<Label Text="Is RWHS Overflow" FontSize="Medium" />
+            <Entry Text="{Binding h2oDiagsData.m_RWHS_IsOverFlow}" d:Text="Is RWHS Overflow" FontSize="Small" Margin="0" />-->
+         <Label Text="Borewell Count" FontSize="Medium" TextColor="Black"/>
+         <Entry Text="{Binding h2oDiagsData.m_BoreWellCount}" d:Text="People Count" FontSize="Small" Margin="0" Keyboard="Numeric" Placeholder="Enter Bore Well count"/>
+         <Label Text="Functional Borewell Count" FontSize="Medium" TextColor="Black"/>
+            <Entry Text="{Binding h2oDiagsData.m_FunctBoreWellCount}" d:Text="Water Meters" FontSize="Small" Margin="0" Keyboard="Numeric" Placeholder="Enter Bore Well count that give Water"/>
+         <Button Text="Next" Clicked="OnNext_Clicked" VerticalOptions="EndAndExpand" BackgroundColor="LightSteelBlue" FontSize="Large"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

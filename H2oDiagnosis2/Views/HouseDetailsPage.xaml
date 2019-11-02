@@ -3,15 +3,54 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:H2oDiagnosis2.Models"
              mc:Ignorable="d"
              x:Class="H2oDiagnosis2.Views.HouseDetailsPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:NullableIntConverter x:Key="NullableIntConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Apartment Name" FontSize="Medium" />
-            <Entry Text="{Binding Item.Text}" d:Text="Item name" FontSize="Small" />
-            <Label Text="No. of Flats" FontSize="Medium" />
-            <Editor Text="{Binding Item.Description}" d:Text="Item description" FontSize="Small" Margin="0" />
-            <Button Text="Next"  VerticalOptions="End" Clicked="OnNext_Clicked"/>
+      <StackLayout BackgroundColor="AliceBlue">
+         <Picker Title="Select a House Type" SelectedIndexChanged="OnPickerSelectedIndexChanged" ItemDisplayBinding="{Binding Name}" HeightRequest="90" FontSize="Small">
+                <Picker.Items>
+                    <x:String>Individual House</x:String>
+                    <x:String>Apartment</x:String>
+                    <x:String>SemiGated</x:String>
+                    <x:String>Gated</x:String>
+                </Picker.Items>
+            </Picker>
+         <Label Text="Roof Area(in sqft) *" FontSize="Medium" TextColor="Black"/>
+         <Entry Text="{Binding h2oDiagsData.m_RoofArea}" d:Text ="Roof Area" FontSize="Small" Margin="0" Placeholder="Enter roof area in sq.ft" Keyboard="Numeric"/>
+         <Label Text="Flat Count *" FontSize="Medium" TextColor="Black"/>
+         <Entry Text="{Binding h2oDiagsData.m_FlatCount, Mode=TwoWay, Converter={StaticResource NullableIntConverter}}" FontSize="Small" Placeholder="Enter number of flats" Keyboard="Numeric" />
+         <Label Text="People Count" FontSize="Medium" TextColor="Black" />
+         <Entry Text="{Binding h2oDiagsData.m_PeopleCount, Mode=TwoWay, Converter={StaticResource NullableIntConverter}}" FontSize="Small" Placeholder="Enter number of people" Keyboard="Numeric" />
+
+            <StackLayout Orientation="Horizontal" Spacing="0" IsVisible="{Binding ReportMode}">
+            <Label Text="Water Meters" FontSize="Medium" TextColor="Black"/>
+                <StackLayout Orientation="Horizontal" Spacing="0" HorizontalOptions="EndAndExpand">
+                    <BoxView IsVisible="{Binding GraphMode}"  HorizontalOptions="EndAndExpand"/>
+                    <Switch IsToggled="{Binding h2oDiagsData.m_WaterMeters}" HorizontalOptions="EndAndExpand" OnColor="Green"/>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" Spacing="0" IsVisible="{Binding ReportMode}">
+            <Label Text="Tap Water Savers" FontSize="Medium" TextColor="Black"/>
+                <StackLayout Orientation="Horizontal" Spacing="0" HorizontalOptions="EndAndExpand">
+                    <BoxView IsVisible="{Binding GraphMode}"  HorizontalOptions="EndAndExpand"/>
+                    <Switch IsToggled="{Binding h2oDiagsData.m_TapWaterSavers}" HorizontalOptions="EndAndExpand" OnColor="Green"/>
+                </StackLayout>
+            </StackLayout>
+
+            <!--<Label Text="Water Meters" FontSize="Medium" />
+            <Entry Text="{Binding h2oDiagsData.m_WaterMeters}" d:Text="Water Meters" FontSize="Small" Margin="0" />
+            <Label Text="Tap Water Savers" FontSize="Medium" />
+            <Entry Text="{Binding h2oDiagsData.m_TapWaterSavers}" d:Text="Tap Water Savers" FontSize="Small" Margin="0" />-->
+         <Button Text="Next"  VerticalOptions="EndAndExpand" Clicked="OnNext_Clicked" BackgroundColor="LightSteelBlue" FontSize="Large"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

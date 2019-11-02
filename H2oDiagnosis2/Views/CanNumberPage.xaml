@@ -8,11 +8,17 @@
              BackgroundImageSource="C:\\Users\\mgaddam1\\source\\repos\\H2oDiagnosis2\\H2oDiagnosis2\\Background2.jpg">
     <ContentPage.Content>
         <StackLayout BackgroundColor="AliceBlue">
-            <Label Text="CAN Number" FontSize="Medium" TextColor="Black"/>
-            <Entry Text="{Binding x.CanNo}" d:Text="Item name" FontSize="Small" />
-            <Label Text="Lat Long" FontSize="Medium" TextColor="Black"/>
-            <Editor Text="{Binding x.LatLong}" d:Text="Item description" FontSize="Small" Margin="0" />
-            <Button Text="Next" Clicked="OnButtonClicked" />
+            <Label Text="Name" FontSize="Medium" TextColor="Black"/>
+         <Entry Text="{Binding h2oDiagsData.m_Name}" d:Text="User Name" FontSize="Small" Placeholder="Enter your name"/>
+            <Label Text="Mobile Number *" FontSize="Medium" TextColor="Black"/>
+         <Editor Text="{Binding h2oDiagsData.m_MobileNumber}" Keyboard="Numeric" MaxLength="10" d:Text="Mobile No" FontSize="Small" Margin="0" Placeholder="Enter your mobile number"/>
+            <Label Text="Email ID *" FontSize="Medium" TextColor="Black"/>
+         <Editor Text="{Binding h2oDiagsData.m_EmailId}" d:Text="Email ID" FontSize="Small" Margin="0"  Placeholder="Enter your e-mail"/>
+            <Label Text="CAN ID" FontSize="Medium" TextColor="Black"/>
+         <Editor Text="{Binding h2oDiagsData.m_CANID}" d:Text="CAN ID" Keyboard="Numeric" FontSize="Small" Margin="0" Placeholder="Enter your Muncipal CAN number" />
+            <!--<Label Text="Location" FontSize="Medium" TextColor="Black"/>-->
+         <Button Text="Select My Location" HorizontalOptions="CenterAndExpand" Clicked="OnSelectLocationClicked" BackgroundColor="LightSteelBlue" Margin="0"  />
+         <Button Text="Next" Clicked="OnButtonClicked" BackgroundColor="LightSteelBlue" VerticalOptions="EndAndExpand" FontSize="Large"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
